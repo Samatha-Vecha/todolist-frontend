@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "./firebase";
 import "./Login.css";
+import todoImage from "./todoimg.webp";
+
 
 const Register = () => {
   const [fullName, setFullName] = useState("");
@@ -112,10 +114,14 @@ const Register = () => {
           <button type="submit">Register</button>
         </form>
         <p>
-          Already have an account? <a href="/">Login here</a>
+          Already have an account? <Link to="/">Login here</Link>
         </p>
       </div>
-      <div className="login-image">{/* Optional image */}</div>
+      <div
+        className="login-image"
+        style={{ backgroundImage: `url(${todoImage})` }}
+      ></div>
+
     </div>
   );
 };

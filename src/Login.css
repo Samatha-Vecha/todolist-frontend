@@ -80,13 +80,15 @@
 /* Image section */
 .login-image {
   flex: 2;
-  background: url('/todoimg.webp') no-repeat center center;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
 }
+
 
 /* Login form section */
 .login-form {

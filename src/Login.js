@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import {
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
@@ -7,6 +7,8 @@ import {
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "./firebase";
 import "./Login.css";
+import todoImage from "./todoimg.webp"; // adjust path if needed
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -78,23 +80,27 @@ const Login = () => {
           </div>
           <button type="submit">Log In</button>
         </form>
-        <p>
-          <a href="#" className="forgot-password" onClick={handleForgotPassword}>
-            Forgot your password?
-          </a>
-        </p>
+        <span
+          onClick={handleForgotPassword}
+          className="forgot-password"
+          style={{ color: "blue", cursor: "pointer", textDecoration: "underline" }}
+        >
+          Forgot your password?
+        </span>
+
         <p style={{ marginTop: "15px" }}>
           Don’t have an account?{" "}
-          <span
-            className="register-link"
-            onClick={() => navigate("/register")}
-            style={{ cursor: "pointer" }}
-          >
+          <Link to="/register" className="register-link">
             Register here
-          </span>
+          </Link>
         </p>
+
       </div>
-      <div className="login-image">{/* Optional image */}</div>
+      <div
+        className="login-image"
+        style={{ backgroundImage: `url(${todoImage})` }}
+      ></div>
+
     </div>
   );
 };
