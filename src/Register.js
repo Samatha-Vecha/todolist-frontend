@@ -45,7 +45,7 @@ const Register = () => {
       });
 
       // Inform backend (optional)
-      await fetch("http://localhost:3000/register", {
+      await fetch("https://todolist-backend-vfep.onrender.com/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ uid: user.uid, name: fullName, email, location, phone }),

@@ -86,21 +86,22 @@ const TaskManager = () => {
   };
 
   const deleteTodo = async (id) => {
-    if (!user?.email) return;
-    const sanitizedEmail = sanitizeEmail(user.email);
+  if (!user?.email) return;
+  const sanitizedEmail = sanitizeEmail(user.email);
 
-    try {
-      await axios.delete(`http://localhost:3001/tasks/${id}`, {
-        data: { email: sanitizedEmail },
-      });
+  try {
+    await axios.delete(`https://todolist-backend-vfep.onrender.com/tasks/${id}`, {
+      data: { email: sanitizedEmail },
+    });
 
-      alert("Task deleted successfully ✅");
-      fetchTodos(user.email);
-    } catch (error) {
-      console.error('Delete error:', error.response?.data?.error || error.message);
-      alert("Failed to delete the task ❌");
-    }
-  };
+    alert("Task deleted successfully ✅");
+    fetchTodos(user.email);
+  } catch (error) {
+    console.error('Delete error:', error.response?.data?.error || error.message);
+    alert("Failed to delete the task ❌");
+  }
+};
+
 
   const startEditing = (todo) => {
     setEditingId(todo.id);
